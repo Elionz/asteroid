@@ -27,13 +27,16 @@ def main():
                 return
             pass
 
+        ship.update(dt)
+
         screen.fill("black")
         ship.draw(screen)  # draw after fill, before flip
 
         pygame.display.flip()
-        
+
         milliseconds_passed = clock.tick(60)
         dt = milliseconds_passed / 1000
+
 
 
 if __name__ == "__main__":
