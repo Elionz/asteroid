@@ -57,11 +57,15 @@ def main():
         dt = milliseconds_passed / 1000
 
         for asteroid in asteroids:
-             if asteroid.collides_with(ship):
+            if asteroid.collides_with(ship):
                 log_event("player_hit")
                 print("Game Over!")
                 sys.exit()
-
+            for shot in shots:
+                if asteroid.collides_with(shot):
+                    log_event("asteroid_shot")
+                    shot.kill()
+                    asteroid.kill()
 
 
 if __name__ == "__main__":
